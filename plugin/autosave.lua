@@ -1,3 +1,30 @@
+-- some recommended exclusions. you can use `:lua print(vim.bo.filetype)` to
+-- get the filetype string of the current buffer
+local excluded_filetypes = {
+  "gitcommit",
+  -- most of these are usually set to non-modifiable, which prevents autosaving
+  -- by default, but it doesn't hurt to be extra safe.
+  "NvimTree",
+  "Outline",
+  "TelescopePrompt",
+  "alpha",
+  "dashboard",
+  "lazygit",
+  "neo-tree",
+  "oil",
+  "prompt",
+  "toggleterm",
+}
+
+local function save_condition(buf)
+    if
+         vim.tbl_contains(excluded_filetypes, vim.fn.getbufvar(buf, "&filetype"))
+    then
+         return false
+    end
+    return true
+end
+
 require("auto-save").setup({
     enabled = true, -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
     trigger_events = { -- See :h events
@@ -9,7 +36,7 @@ require("auto-save").setup({
     -- return true: if buffer is ok to be saved
     -- return false: if it's not ok to be saved
     -- if set to `nil` then no specific condition is applied
-    condition = nil,
+    condition = save_condition,
     write_all_buffers = false, -- write all buffers when the current one meets `condition`
     noautocmd = false, -- do not execute autocmds when saving
     lockmarks = false, -- lock marks when saving, see `:h lockmarks` for more details
