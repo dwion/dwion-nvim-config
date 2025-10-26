@@ -49,3 +49,5 @@ vim.api.nvim_set_option_value('winborder', 'bold', {})
 -- Leave room for signs on the side
 vim.api.nvim_set_option_value('signcolumn', 'yes', {})
 vim.api.nvim_set_option_value('showcmd', false, {})
+-- Have long lines break at words
+vim.api.nvim_set_option_value('linebreak', true, {})
