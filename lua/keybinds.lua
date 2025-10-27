@@ -55,5 +55,8 @@ map("n", "<S-TAB>", "gT")
 map("n", "n", "nzz")
 map("n", "N", "Nzz")
 
-map({ 'n', 'v'}, 'H', '^')
-map({ 'n', 'v'}, 'L', '$')
+-- H -> ^, L -> $
+map({ 'n', 'v' }, 'H', '^')
+map({ 'n', 'v' }, 'L', '$')
+
+map({'n', 'v' }, '<leader>t', ':FloatermToggle<CR>', { desc = 'Toggle floating terminal' })

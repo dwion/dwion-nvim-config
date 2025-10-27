@@ -14,6 +14,7 @@ local excluded_filetypes = {
   "oil",
   "prompt",
   "toggleterm",
+  "floaterm",
 }
 
 local function save_condition(buf)

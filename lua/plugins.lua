@@ -15,6 +15,7 @@ Plug('RRethy/vim-illuminate')
 Plug('nvim-mini/mini.nvim')
 Plug('nvim-lua/plenary.nvim')
 Plug('goolord/alpha-nvim')
+Plug('voldikss/vim-floaterm')
 
 -- nvim-tree
 Plug('nvim-tree/nvim-web-devicons')
