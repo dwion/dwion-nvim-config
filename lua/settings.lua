@@ -51,3 +51,7 @@ vim.api.nvim_set_option_value('signcolumn', 'yes', {})
 vim.api.nvim_set_option_value('showcmd', false, {})
 -- Have long lines break at words
 vim.api.nvim_set_option_value('linebreak', true, {})
+-- When splitting vertical, split right
+vim.api.nvim_set_option_value('splitright', true, {})
+
+

@@ -12,8 +12,8 @@ map('n', '<Leader>c', ':q<CR>', { desc = 'Close window' })
 map('n', '<Leader>q', ':qa<CR>', { desc = 'Exit Neovim' })
 
 local api = require "nvim-tree.api"
-map('n', "<Leader>e", api.tree.toggle, { desc = 'Toggle nvim-tree' })
-map('n', "<Leader>f", api.tree.open, { desc = 'Focus on nvim-tree' })
+map('n', "<Leader>w", api.tree.toggle, { desc = 'Toggle nvim-tree' })
+map('n', "<Leader>e", api.tree.open, { desc = 'Focus on nvim-tree' })
 
 -- LSP stuff
 map("n", "<leader>r", vim.lsp.buf.rename, { desc = 'LSP rename' })
@@ -59,4 +59,30 @@ map("n", "N", "Nzz")
 map({ 'n', 'v' }, 'H', '^')
 map({ 'n', 'v' }, 'L', '$')
 
-map({'n', 'v' }, '<leader>t', ':FloatermToggle<CR>', { desc = 'Toggle floating terminal' })
+-- Toggle floating terminal
+map({'n', 'v' }, '<leader>t', ':FloatermToggle<CR>', { desc = 'Toggle floating terminal', silent = true })
+
+-- Telescope keybinds
+local builtin = require('telescope.builtin')
+local telescope = require('telescope')
+map('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+map('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+map('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+map('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+map('n', '<leader>fs', telescope.extensions.sessions_picker.sessions_picker, { desc = 'Telescope sessions' })
+
+-- Save global session with mini.sessions
+function write_session()
+    vim.ui.input(
+        { prompt = 'Session name: ' },
+        function(input)
+            MiniSessions.write(input)
+        end
+    )
+end
+map({'n', 'v'}, '<leader>s', write_session, { desc = 'Save session' })
+
+-- Easily switch to a buffer in view
+map('n', 'gb', ':BufferLinePick<CR>', { desc = 'Pick a buffer to switch to' })
+-- Easily close a buffer in view
+map('n', 'gD', ':BufferLinePickClose<CR>', { desc = 'Pick a buffer to close' })

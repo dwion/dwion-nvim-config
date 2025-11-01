@@ -10,12 +10,22 @@ vim.call('plug#begin')
 Plug('folke/which-key.nvim')
 Plug('okuuva/auto-save.nvim')
 Plug('m4xshen/autoclose.nvim') -- auto bracket closing
-Plug('lukas-reineke/indent-blankline.nvim', { ['as'] = 'ibl' })
 Plug('RRethy/vim-illuminate')
-Plug('nvim-mini/mini.nvim')
 Plug('nvim-lua/plenary.nvim')
 Plug('goolord/alpha-nvim')
 Plug('voldikss/vim-floaterm')
+Plug('karb94/neoscroll.nvim')
+
+Plug('nvim-mini/mini.nvim')
+Plug('folke/snacks.nvim')
+
+-- telescope
+Plug('nvim-telescope/telescope.nvim')
+Plug('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
+Plug('JoseConseco/telescope_sessions_picker.nvim')
+
+-- treesitter
+Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate', ['branch'] = 'main' })
 
 -- nvim-tree
 Plug('nvim-tree/nvim-web-devicons')

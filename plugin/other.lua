@@ -9,7 +9,6 @@ require("autoclose").setup({
         disable_when_touch = true
    },
 })
-require("ibl").setup()
 
 require('illuminate').configure({
     delay = 200,
@@ -23,13 +22,7 @@ require('illuminate').configure({
     disable_keymaps = false,
 })
 
-require('mini.git').setup()
-require('mini.diff').setup()
-require('mini.statusline').setup()
-require('mini.surround').setup()
--- Add surrounding with `sa`
--- Delete surrounding with `sd`
--- Replace surrounding with `sr`
--- Find surrounding with `sf` or `sF` (move cursor right or left).
--- Highlight surrounding with `sh`
+require('telescope').setup()
+require('telescope').load_extension('fzf')
+require('telescope').load_extension('sessions_picker')
 
