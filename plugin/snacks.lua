@@ -3,6 +3,10 @@ require('snacks').setup({
     input = { enabled = true },
     notifier = { enabled = true },
     -- quickfile = { enabled = true },
-    image = { enabled = true },
+    image = {
+        math = {
+            enabled  = false
+        }
+    },
     -- scope = { enabled = true },
 })

@@ -13,8 +13,9 @@ Plug('m4xshen/autoclose.nvim') -- auto bracket closing
 Plug('RRethy/vim-illuminate')
 Plug('nvim-lua/plenary.nvim')
 Plug('goolord/alpha-nvim')
-Plug('voldikss/vim-floaterm')
+Plug('voldikss/vim-floaterm') -- could replace this with a simple homemade function
 Plug('karb94/neoscroll.nvim')
+-- Plug('seandewar/bad-apple.nvim')
 
 Plug('nvim-mini/mini.nvim')
 Plug('folke/snacks.nvim')

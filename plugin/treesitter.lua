@@ -1,4 +1,4 @@
-local treesitter_languages = { 'rust', 'python', 'c', 'lua', 'latex' }
+local treesitter_languages = { 'rust', 'python', 'c', 'lua', 'latex', 'markdown' }
 require('nvim-treesitter').install(treesitter_languages)
 
 -- Enbale nvim-treesitter features for installed languages

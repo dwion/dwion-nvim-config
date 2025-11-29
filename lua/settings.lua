@@ -39,9 +39,6 @@ vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
 
--- Colorscheme
-vim.cmd('colorscheme cyberdream') -- ayu-dark, unokai, ayu-mirage, elflord, carbonfox, cyberdream
-
 -- Smoother scrolling through long lines
 vim.api.nvim_set_option_value('smoothscroll', true, { scope = 'global' })
 -- Give windows borders

@@ -60,7 +60,13 @@ map({ 'n', 'v' }, 'H', '^')
 map({ 'n', 'v' }, 'L', '$')
 
 -- Toggle floating terminal
-map({'n', 'v' }, '<leader>t', ':FloatermToggle<CR>', { desc = 'Toggle floating terminal', silent = true })
+map({'n', 'v' }, '<leader>tf', ':FloatermToggle<CR>', { desc = 'Toggle floating terminal', silent = true })
+-- Vertically split terminal
+map({'n', 'v' }, '<leader>tv', ':vsplit<CR>:term<CR>i', { desc = 'Vertically split terminal', silent = true })
+-- Horizontally split terminal 
+map({'n', 'v' }, '<leader>th', ':split<CR>:term<CR>i', { desc = 'Horizontally split terminal', silent = true })
+-- Open terminal in new tab
+map({'n', 'v' }, '<leader>tt', ':tabnew<CR>:term<CR>i', { desc = 'Terminal in new tab', silent = true })
 
 -- Telescope keybinds
 local builtin = require('telescope.builtin')
@@ -86,3 +92,15 @@ map({'n', 'v'}, '<leader>s', write_session, { desc = 'Save session' })
 map('n', 'gb', ':BufferLinePick<CR>', { desc = 'Pick a buffer to switch to' })
 -- Easily close a buffer in view
 map('n', 'gD', ':BufferLinePickClose<CR>', { desc = 'Pick a buffer to close' })
+
+-- Apply LSP quickfix
+local function quickfix()
+    vim.lsp.buf.code_action({
+        filter = function(a) return a.isPreferred end,
+        apply = true
+    })
+end
+map('n', '<leader>x', quickfix, { desc = 'LSP fix' })
+
+-- Format code with LSP
+map({'n', 'v'}, '<leader>o', vim.lsp.buf.format, { desc = 'Format code'})
